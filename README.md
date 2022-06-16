@@ -1,6 +1,7 @@
 # Multi-Channel Network: Constructing Efficient GCN Baselines for Skeleton-based Action Recognition
 ## Dependencies
 
+
 - Python == 3.8.5
 - torch== 1.7.1
 - apex==0.1
