@@ -22,11 +22,17 @@ if __name__ == "__main__":
     arg = parser.parse_args()
 
     val_path = arg.val_path
-
-    with open(val_path, 'rb') as label:
-        label = np.array(pickle.load(label))
-
-    label = list(zip(label[0],label[1].astype(int)))
+    if 'NW-UCLA' in val_path:
+        label = []
+        with open('./data/' + 'NW-UCLA/' + '/val_label.pkl', 'rb') as f:
+            data_info = pickle.load(f)
+            for index in range(len(data_info)):
+                info = data_info[index]
+                label.append(int(info['label']) - 1)
+    else:
+        with open(val_path, 'rb') as label:
+            label = np.array(pickle.load(label))
+            label = list(zip(label[0],label[1].astype(int)))
 
     with open(os.path.join(arg.one, 'epoch1_test_score.pkl'), 'rb') as r1:
         r1 = list(pickle.load(r1).items())

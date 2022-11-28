@@ -33,6 +33,10 @@ There are 3 datasets to download:
       `wget https://raw.githubusercontent.com/shahroudy/NTURGB-D/master/Matlab/NTU_RGBD120_samples_with_missing_skeletons.txt`
 
     - Remember to remove the first few lines of text in these files!
+#### NW-UCLA
+
+1. Download dataset from [here](https://www.dropbox.com/s/10pcm4pksjy6mkq/all_sqe.zip?dl=0)
+2. Move `all_sqe` to `./data/NW-UCLA`
 
 
 ### Data Preprocessing
@@ -58,7 +62,7 @@ Put downloaded data into the following directory structure:
 
 ## Pretrained Models
 
-- Download pretrained models for producing the final results on NTU RGB+D 60, NTU RGB+D 120, Kinetics Skeleton 400: 
+- Download pretrained models for producing the final results on NTU RGB+D 60, NTU RGB+D 120, NW-ucla: 
 
   [Google Drive](https://drive.google.com/drive/folders/1BIFtSgBuJU0B1igz0nDAVcdnIOwhztXO?usp=sharing)
 
@@ -92,7 +96,7 @@ python3 main.py
   --weights <path to model weights>
 ```
 
-- Template for six-stream fusion:
+- Template for stream fusion:
 ```
 python3 ensemble.py
   --dataset <val_label path> \

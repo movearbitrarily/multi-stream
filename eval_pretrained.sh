@@ -24,6 +24,13 @@ python main.py --config ./config/nturgbd120-cross-setup/test_bone.yaml --work-di
 python main.py --config config/nturgbd120-cross-setup/test_bone_S_trans.yaml --work-dir pretrain_eval/ntu120/xset/bone-seq --weights pretrained-models/ntu120-xset-bone-seq.pt
 python main.py --config config/nturgbd120-cross-setup/test_joint_S_trans.yaml --work-dir pretrain_eval/ntu120/xset/joint-seq --weights pretrained-models/ntu120-xset-joint-seq.pt
 
+#NW UCLA
+python main.py --config ./config/ucla/test_joint.yaml --work-dir pretrain_eval/ncla/joint --weights pretrained-models/ncla-joint.pt
+python main.py --config ./config/ucla/test_bone.yaml --work-dir pretrain_eval/ncla/bone --weights pretrained-models/ncla-bone.pt
+python main.py --config ./config/ucla/test_bone_frame.yaml --work-dir pretrain_eval/ncla/bone-frame --weights pretrained-models/ncla-bone-frame.pt
+python main.py --config ./config/ucla/test_joint_frame.yaml --work-dir pretrain_eval/ncla/joint-frame --weights pretrained-models/ncla-joint-frame.pt
+
+
 # Perform all ensembles at once
 
 # NTU 60 XSub
@@ -54,3 +61,11 @@ python ensemble.py --val-path ./data/ntu120/xset/val_label.pkl \
 --two  pretrain_eval/ntu120/xset/bone \
 --three  pretrain_eval/ntu120/xset/joint-seq \
 --four  pretrain_eval/ntu120/xset/bone-seq \
+
+
+#NW-UCLA
+python ensemble.py --val-path ./data/NW-UCLA/val_label.pkl \
+--one pretrain_eval/ncla/joint \
+--two  pretrain_eval/ncla/bone \
+--three  pretrain_eval/ncla/joint_frame \
+--four  pretrain_eval/ncla/bone_frame
